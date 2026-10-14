@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="en" itemscope itemtype="http://schema.org/Game">
+	<head>
+		<meta charset="utf-8">
+		<title>Cube</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link href='styles.css' rel='stylesheet' type='text/css'>
+		<meta property="og:url" content="http://www.playmapscube.com"/> 
+		<meta property="og:title" content="Cube - A game about Google Maps"/> 
+		<meta property="og:description" content="Play your way through a cubic Google Maps world. Travel through New York, Tokyo and many other cities and learn all about the great features of Google Maps."/> 
+		<meta property="og:image" content="http://www.playmapscube.com/icons/icon200x240.png"/> 
+		<meta name="viewport" content="initial-scale=1.0, width=device-width">
+		<meta name="description" content="Play your way through a cubic Google Maps world. Travel through New York, Tokyo and many other cities and learn all about the great features of Google Maps.">
+		<meta itemprop="name" content="Cube - A game about Google Maps">
+		<meta itemprop="description" content="Play your way through a cubic Google Maps world. Travel through New York, Tokyo and many other cities and learn all about the great features of Google Maps.">
+		<meta itemprop="image" content="http://www.playmapscube.com/images/thumb.png">
+	</head>
+	<body>
+	
+	<div id="container" class="maximize"></div>
+	
+	<div id="lightBox" ></div>
+	
+	<div id="experimentLogo" ></div>
+	
+	<div id="topBar" >
+		
+		<div id="topLogo" ></div>
+		<ul class="title"><li>A game about</li><li><div class="google_maps_logo" ></div></li></ul>
+		
+		<div id="topLinks" >
+			<a href="http://www.youtube.com/watch?v=EYRd8hNvi7o" rel="external" >Watch the Explore your world video</a>
+			<a href="http://maps.google.com/help/maps/starthere/index.html" rel="external" >Visit Start here</a>
+		</div>
+		
+		<div id="buttonsPanel" >
+			<a href="#" id="showLeaderboardButton" ></a>
+			<a href="#" id="muteButton" ></a>
+			<!--<a class="fullscreenBtn" id="fullscreenButton" href="#" ></a>-->
+		</div>
+		<!-- Google+ / Twitter / Facebook buttons removed: those services' 2012 widgets no longer work. -->
+		<div class="socialTopRight"></div>
+	</div>
+	
+	<div id="bottomBar" >
+		<p id="goalMessage"><span></span><strong></strong></p>
+		<div id="scorePanel">
+			<p id="timePanel">
+				<span id="yourTimeSpan" >Your Time:</span><span id="currentLevelTime" >00:00</span><span id="bestTimeSpan" >Best:</span><span id="bestLevelTime" >00:00</span>
+			</p>
+		</div>
+		<a id="reloadBtn" href="#" >
+			<span></span>Restart
+		</a>		
+	</div>
+	
+	<div id="unsupportedDialog" class="dialog" >
+		<div class="intro" >
+			<h1>Your Browser is Unsupported</h1>
+			<p>To play Cube you need a browser that supports <a href="http://get.webgl.org" rel="external" >WebGL</a>. Try updating<br/>your browser or installing <a href="https://www.google.com/chrome" rel="external" >Google Chrome</a>. Check out what you’re missing.</p>
+		</div>
+		<div class="stripe video">
+			<div id="unsupportedVideo" >
+			</div>
+		</div>
+		<div class="downloadLink" >
+			<a href="https://www.google.com/chrome">
+				<ul>
+					<li class="chromeIcon"></li>
+					<li class="text">Download Google Chrome</li>
+				</ul>
+			</a>
+		</div>
+	</div>
+	
+	<div id="loaderDialog" class="dialog" >
+		<div class="intro" >
+			<div class="intro_image" id="intro_cube">
+				<div>
+					<ul class="title"><li>A game about</li><li><div class="google_maps_logo" ></div></li></ul>
+				</div>
+			</div>
+			<div class="intro_image" id="intro_tokyo">
+				<p>Check-in in Tokyo</p>
+			</div>
+			<div class="intro_image" id="intro_sf">
+				<p>Biking in San Francisco</p>
+			</div>
+			<div class="intro_image" id="intro_vegas">
+				<p>Visit restaurants in Las Vegas</p>
+			</div>
+		</div>
+		<div class="stripe buttons">
+			<div id="preloaderBar" >
+				<p>Please wait while the game loads...</p>
+				<div class="preloader" >
+					<div class="bar" ></div>
+				</div>
+			</div>
+			<a href="#" id="startGameButton" >
+				Start Playing!
+			</a>
+		</div>
+	</div>
+	
+	<div id="mainDialog" class="dialog" >
+		<div class="intro" >
+			<h2></h2>
+			<h1></h1>
+		</div>
+		<div id="mainImage" >
+		</div>
+		<div class="mission">
+			<p></p> 
+		</div>
+		<div class="stripe buttons">
+			<div class="arrow" ></div>
+			<a href="#" class="readyButton" id="readyButton" >Ready!</a>
+		</div>
+	</div>
+	
+	<div id="tutorialDialog" class="dialog" >
+		<div class="intro" >
+			<h2>Instructions</h2>
+			<h1>How to Play</h1>
+		</div>
+		<div class="mission">
+			<div class="videoContainer" >
+				<video id="tutorialVideo" preload="auto" loop>
+				</video>
+			</div>
+			<p>Navigate by using your cursor.</p> 
+		</div>
+		<div class="stripe buttons">
+			<div class="arrow" ></div>
+			<a href="#" class="letsRollButton" id="letsRollButton" >Let's Roll!</a>
+		</div>
+	</div>
+	
+	<div id="levelCompleteDialog" class="dialog" >
+		<div class="intro" >
+			<h2></h2>
+			<h1></h1>
+		</div>
+		<div id="tipImage" >
+		</div>
+		<div class="mission">
+			<p></p>
+		</div>
+		<div class="stripe buttons">
+			<div class="arrow" ></div>
+			<a href="#" class="learnMoreButton" id="learnMoreButton" >Learn more</a>
+			<a href="#" class="nextLevelButton" id="nextLevelButton" >Next level</a>
+		</div>
+	</div>
+	
+	<div id="completeDialog" class="dialog" >
+		<div class="intro" >
+			<h2>Congratulations,</h2>
+			<h1>You've Completed The Game!</h1>
+			<p>Your time is the <span id="timeRank" >4th</span> fastest out of <span id="numberPlayers" >2045</span> players!</p>
+		</div>
+		<div class="stripe buttons">
+			<div class="arrow" ></div>
+			<div class="bigScorePanel">
+				<p class="bigTimePanel" id="bigTimePanel">
+					<span class="header">Your Total Time</span>
+					<span class="value">00:00</span>
+				</p>
+				<p class="bestTimePanel" id="bestTimePanel">
+					<span class="header">Fastest Total Time</span>
+					<span class="value">00:00</span>
+				</p>
+			</div>
+		</div>
+		<div class="mission">
+			<!--<p>Check the leaderboard to see the times to beat and<br/>replay the game to increase your ranking.</p> -->
+			<p>Thank you for playing Cube. To learn more about Google Maps and Google Maps for Android visit Start here. To see a real version of the cube in action, click the view video link below.</p>
+		</div>
+		<div style="height: 80px; position: absolute; bottom: 0; left: 0; right: 0; background-color: #f1f1f1; border-top: 1px solid #e8e8e8; padding-top: 20px; padding-left: 14px" >
+			<div>
+				<a href="#" class="leaderboardButton" id="leaderboardBtn" >View Leaderboard</a>
+				<a href="http://maps.google.com/help/maps/starthere/index.html" class="visitStartHereButton" rel="external" id="visitStartHereButton" >Visit Start here</a>
+				<a href="http://www.youtube.com/watch?v=EYRd8hNvi7o" class="viewVideoButton" rel="external" id="viewVideoButton" >View video</a>
+				<a href="#" class="replayButton" id="replayButton" >Play again</a>
+			</div>
+		</div>
+	</div>
+	
+	<div id="leaderboardDialog" class="dialog" >
+		<div id="leaderboardResponse" >
+			<a href="#" id="closeLeaderboardBtn" ></a>
+			<div class="statsIntro" >
+				<h1>Game Stats</h1>
+			</div>
+			<div class="statsRank" >
+				<p id="rankMessage">Congrats, you’re the <span id="statsTimeRank" >4th</span> fastest out of <span id="statsNumberPlayers" >2045</span> players!</p>
+				<p id="noRankMessage" >You haven’t finished a game yet.<br/>Complete the 8 levels to get into the top 10!</p> 
+			</div>
+			<div class="statsTabs" >
+				<ul>
+					<li id="yourStatsPanel" ><a href="#" >Your Stats</a></li>
+					<li id="leaderboardPanel" ><a href="#" >Leaderboard</a></li>
+				</ul>
+				<div class="arrow" ></div>
+			</div>
+			<div id="statsContainer" >
+				<div class="statsPosition" >
+					<p>For the <span id="statsGames" ><span id="statsPersonalGames" >6</span> games</span> you’ve played, the <span id="statsBestTime">fastest overall time is <span id="statsPersonalBest">1:42</span></span> and<br/>the <span id="statsWorstTime" >slowest time is <span id="statsPersonalWorst">2:31</span></span>. <span id="shaveMessage" ></span></p>
+				</div>
+				<div id="statsTable" ></div>
+			</div>
+			<div id="leaderboardContainer" >
+				<div class="topHeader" >
+					<span class="rankSpan" >Rank</span>
+					<span class="nameSpan" >Player</span>
+					<span class="timeSpan" >Time</span>
+				</div>
+				<div id="leaderboardContent" >
+				</div>
+				<p><a href="#" >Load more players</a></p>
+			</div>
+		</div>
+	</div>
+	
+	<div id="requestDialog" class="dialog" >
+		<div id="spinner" ></div>
+	</div>
+	
+	<script type="text/javascript" >
+	var CUBE_DATA_PATH = './proto/';
+	var CUBE_ASSETS_PATH = './';
+	var DEMO_SXSW = false;
+	var ENABLE_SOUND = true;
+	var ENABLE_WEBKIT_AUDIO = true;
+	var DISABLE_INGAME_SOUNDS = false;
+	var serverGame = true;	// keep true: the original server flow runs, answered by localserver.js
+	// var CUBE_LOCAL_SERVER = false;	// uncomment to disable the local backend and use real network requests
+	// var CUBE_LOCAL_SERVER_OPTIONS = { useArchivedRecords: true };	// optionally seed "Best" times with the archived 2012 records
+	console.log = function() {};
+	</script>
+
+	<script src="localserver.js?v=3"></script>
+	<script src="cube.min.js?v=3"></script>
+	<script type="text/javascript">
+	// Safety net: the patched cube.min.js sets window.CubePatched. If it is missing, Chrome is running a stale cached copy
+	// (or an unpatched file), which hangs on the loading spinner. Tell the user instead of failing silently.
+	if ( !window.CubePatched || !window.CubeLocalServer ) {
+		window.addEventListener( "DOMContentLoaded", function() {
+			var d = document.createElement( "div" );
+			d.style.cssText = "position:fixed;z-index:99999;left:0;right:0;top:0;padding:14px 20px;background:#c62828;color:#fff;font:16px/1.4 Arial,sans-serif;text-align:center";
+			d.innerHTML = "Old/cached game files are being used (patched cube.min.js not loaded). Press <b>Ctrl+Shift+R</b> (or F12 &rarr; Network &rarr; tick &ldquo;Disable cache&rdquo; &rarr; reload). If it persists, make sure you copied <b>all</b> files from the new ZIP over the old folder.";
+			document.body.appendChild( d );
+		}, false );
+	}
+	</script>
+	
+	<script type="text/javascript" >
+	window.addEventListener( 'load', init, false );
+	</script>
+	
+	<script type="text/javascript">
+	// Google Analytics (ga.js) removed. cube.min.js still calls _gaq.push([...]) during play,
+	// so keep a harmless array to absorb those calls.
+	var _gaq = _gaq || [];
+	</script>
+	
+	</body>
+</html>
